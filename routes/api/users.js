@@ -6,6 +6,10 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
+//Load input Validation
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
+
 //Load User model
 const User = require("../../models/User");
 
@@ -19,11 +23,19 @@ router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 // @access  Public
 
 router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  //Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
       errors.email = "Email already exists";
       return res.status(400).json(errors);
     } else {
+      //Create an avatar for user
       const avatar = gravatar.url(req.body.email, {
         s: "200", // Size
         r: "pg", // Rating
@@ -38,7 +50,7 @@ router.post("/register", (req, res) => {
       });
 
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
+        bcrypt.hash(req.body.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
           newUser
@@ -55,28 +67,33 @@ router.post("/register", (req, res) => {
 // @desc    Login User / Returning JWT token
 // @access  Public
 router.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const { email, password } = req.body;
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  //Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
 
   //Find user by email
   User.findOne({ email }).then(user => {
     //check user
     if (!user) {
-      return res.status(404).json({ email: "User not found" });
+      errors.email = "User not found";
+      return res.status(404).json(errors);
     }
 
     //Check password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        //User Match
+        //User matched
+        const payload = { id: user.id, name: user.name, avatar: user.avatar }; // Create Jwt payload (object)
 
-        const payload = { id: user.id, name: user.name, avatar: user.avatar }; // Create JWT payload
-
-        //Sign token
+        //Sign Token
         jwt.sign(
           payload,
           keys.secretOrKey,
-          { expiresIn: 3600 },
+          { expiresIn: "1h" },
           (err, token) => {
             res.json({
               success: true,
