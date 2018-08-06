@@ -1,0 +1,92 @@
+/* Overall styling */
+
+/* 
+background: #485563; 
+background: -webkit-linear-gradient(
+  to right,
+  #29323c,
+  #485563
+); 
+background: linear-gradient(
+  to right,
+  #29323c,
+  #485563
+);
+*/
+
+body {
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.pd-10 {
+  padding: 0 10%;
+}
+.mg-10 {
+  margin: 0 10%;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+/* .card {
+  padding: 2%;
+  display: flex;
+  justify-content: space-around;
+} */
+/* Landing page styling */
+.particles {
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #89253e,
+    #3a6186
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #89253e, #3a6186);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+.tilt-text {
+  background: #005c97; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #363795, #005c97);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #363795, #005c97);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+}
+.landing-button > * {
+  margin: 10px;
+  margin-top: 50px;
+}
+/* Profile Style */
+.profile-avatar {
+  height: 150px;
+  width: 150px !important;
+}
+.profile-item {
+  display: flex;
+}
+.profile-info > * {
+  margin-bottom: 10px !important;
+}
+/* Footer style */
+.footer {
+  position: relative;
+  bottom: 0;
+  top: 0;
+}
