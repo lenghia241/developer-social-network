@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Particles from "react-particles-js";
-import NavbarLanding from "../Navbar/NavbarLanding";
 import Tilt from "react-tilt";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 const particlesOptions = {
   particles: {
@@ -24,11 +25,15 @@ const particlesOptions = {
 };
 
 export class Landing extends Component {
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   render() {
     return (
       <div>
-        <NavbarLanding />
-
         <Tilt
           className="Tilt z-depth-4 tilt-text center white-text"
           style={{ height: "15%", width: "60%" }}
@@ -63,4 +68,12 @@ export class Landing extends Component {
   }
 }
 
-export default Landing;
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);
