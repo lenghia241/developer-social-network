@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -47,91 +47,86 @@ class Signup extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <Fragment>
-        <div className="row container">
-          <h1>Sign Up</h1>
-          <p>Create your DevNet account</p>
-          <form className="col s12" onSubmit={this.onSubmit}>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
-                <input
-                  id="name"
-                  type="text"
-                  className={errors.name ? "invalid" : "validate"}
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="name">Full Name</label>
-                <span className="helper-text left" data-error={errors.name} />
-              </div>
+      <div className="row">
+        <h1>Sign Up</h1>
+        <p>Create your DevNet account</p>
+        <form className="col s12" onSubmit={this.onSubmit}>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">account_circle</i>
+              <input
+                id="name"
+                type="text"
+                className={errors.name ? "invalid" : "validate"}
+                name="name"
+                value={this.state.name}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="name">Full Name</label>
+              <span className="helper-text left" data-error={errors.name} />
             </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">email</i>
-                <input
-                  id="email"
-                  type="email"
-                  className={errors.email ? "invalid" : "validate"}
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="helper-text left" data-error={errors.email}>
-                  This site uses Gravatar so if you want a profile image, use a
-                  Gravatar email
-                </span>
-              </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">email</i>
+              <input
+                id="email"
+                type="email"
+                className={errors.email ? "invalid" : "validate"}
+                name="email"
+                value={this.state.email}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="email">Email</label>
+              <span className="helper-text left" data-error={errors.email}>
+                This site uses Gravatar so if you want a profile image, use a
+                Gravatar email
+              </span>
             </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">lock</i>
-                <input
-                  id="password"
-                  type="password"
-                  className={errors.password ? "invalid" : "validate"}
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="password">Password</label>
-                <span
-                  className="helper-text left"
-                  data-error={errors.password}
-                />
-              </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">lock</i>
+              <input
+                id="password"
+                type="password"
+                className={errors.password ? "invalid" : "validate"}
+                name="password"
+                value={this.state.password}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="password">Password</label>
+              <span className="helper-text left" data-error={errors.password} />
             </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">lock</i>
-                <input
-                  id="password2"
-                  type="password"
-                  className={errors.password2 ? "invalid" : "validate"}
-                  name="password2"
-                  value={this.state.password2}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="password2">Confirm Password</label>
-                <span
-                  className="helper-text left"
-                  data-error={errors.password2}
-                />
-              </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">lock</i>
+              <input
+                id="password2"
+                type="password"
+                className={errors.password2 ? "invalid" : "validate"}
+                name="password2"
+                value={this.state.password2}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="password2">Confirm Password</label>
+              <span
+                className="helper-text left"
+                data-error={errors.password2}
+              />
             </div>
-            <button
-              className="btn-large waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i className="material-icons right">send</i>
-            </button>
-          </form>
-        </div>
-      </Fragment>
+          </div>
+          <button
+            className="btn-large waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i className="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
     );
   }
 }

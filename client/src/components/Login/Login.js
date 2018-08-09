@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authAction";
@@ -47,55 +47,50 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <Fragment>
-        <div className="row container">
-          <h1>Log In</h1>
-          <p>Sign in to your DevNet account</p>
-          <form className="col s12" onSubmit={this.onSubmit}>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">email</i>
-                <input
-                  id="email"
-                  type="email"
-                  className={errors.email ? "invalid" : "validate"}
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="helper-text left" data-error={errors.email} />
-              </div>
+      <div className="row">
+        <h1>Log In</h1>
+        <p>Sign in to your DevNet account</p>
+        <form className="col s12" onSubmit={this.onSubmit}>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">email</i>
+              <input
+                id="email"
+                type="email"
+                className={errors.email ? "invalid" : "validate"}
+                name="email"
+                value={this.state.email}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="email">Email</label>
+              <span className="helper-text left" data-error={errors.email} />
             </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">lock</i>
-                <input
-                  id="password"
-                  type="password"
-                  className={errors.password ? "invalid" : "validate"}
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.onChangeInput}
-                />
-                <label htmlFor="password">Password</label>
-                <span
-                  className="helper-text left"
-                  data-error={errors.password}
-                />
-              </div>
+          </div>
+          <div className="row">
+            <div className="input-field col s12">
+              <i className="material-icons prefix">lock</i>
+              <input
+                id="password"
+                type="password"
+                className={errors.password ? "invalid" : "validate"}
+                name="password"
+                value={this.state.password}
+                onChange={this.onChangeInput}
+              />
+              <label htmlFor="password">Password</label>
+              <span className="helper-text left" data-error={errors.password} />
             </div>
-            <button
-              className="btn-large waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i className="material-icons right">send</i>
-            </button>
-          </form>
-        </div>
-      </Fragment>
+          </div>
+          <button
+            className="btn-large waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i className="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
     );
   }
 }

@@ -3,14 +3,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TextFieldGroup from "../../../common/TextFieldGroup";
 import { withRouter } from "react-router-dom";
-import isEmpty from "../../../validation/is-empty";
 
-import {
-  createNewProfile,
-  getCurrentProfile
-} from "../../../actions/profileAction";
+import { createNewProfile } from "../../../actions/profileAction";
 
-class EditProfile extends Component {
+class CreateProfile extends Component {
   state = {
     displaySocialInputs: false,
     handle: "",
@@ -29,66 +25,10 @@ class EditProfile extends Component {
     errors: {}
   };
 
-  componentDidMount() {
-    this.props.getCurrentProfile();
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
-      });
-    }
-
-    if (nextProps.profile.profile) {
-      const profile = nextProps.profile.profile;
-
-      //Bring skills array back to string with coma.
-      const skillsString = profile.skills.join(",");
-
-      // if Profile field doesnt exist make empty string
-      let {
-        handle,
-        status,
-        company,
-        website,
-        location,
-        githubusername,
-        bio,
-        social,
-        twitter,
-        facebook,
-        instagram,
-        youtube,
-        linkedin
-      } = profile;
-      company = !isEmpty(company) ? company : "";
-      website = !isEmpty(website) ? website : "";
-      location = !isEmpty(location) ? location : "";
-      githubusername = !isEmpty(githubusername) ? githubusername : "";
-      bio = !isEmpty(bio) ? bio : "";
-      social = !isEmpty(social) ? social : {};
-      twitter = !isEmpty(social.twitter) ? social.twitter : "";
-      facebook = !isEmpty(social.facebook) ? social.facebook : "";
-      instagram = !isEmpty(social.instagram) ? social.instagram : "";
-      youtube = !isEmpty(social.youtube) ? social.youtube : "";
-      linkedin = !isEmpty(social.linkedin) ? social.linkedin : "";
-
-      // Set component fields state
-      this.setState({
-        handle,
-        company,
-        website,
-        location,
-        status,
-        skills: skillsString,
-        githubusername,
-        bio,
-        twitter,
-        facebook,
-        linkedin,
-        youtube,
-        instagram
       });
     }
   }
@@ -147,7 +87,7 @@ class EditProfile extends Component {
 
     if (displaySocialInputs) {
       socialInputs = (
-        <div className="row">
+        <div>
           <TextFieldGroup
             name="facebook"
             placeholder="Facebook"
@@ -182,7 +122,8 @@ class EditProfile extends Component {
 
     return (
       <div className="row">
-        <h1>Edit Profile</h1>
+        <h1>Create Your Profile</h1>
+        <p>Let's get some information to make your profile stand out</p>
         <form className="col s12" onSubmit={this.onSubmit}>
           <TextFieldGroup
             name="handle"
@@ -293,24 +234,24 @@ class EditProfile extends Component {
             <button
               className="btn waves-effect waves-light left"
               onClick={() => {
-                this.setState({
-                  displaySocialInputs: !this.state.displaySocialInputs
-                });
+                this.setState(prevState => ({
+                  displaySocialInputs: !prevState.displaySocialInputs
+                }));
               }}
             >
               Add Social Network Links
             </button>
             {socialInputs}
-          </div>
-          <div className="row">
-            <button
-              className="btn-large waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i className="material-icons right">send</i>
-            </button>
+            <div className="row">
+              <button
+                className="btn-large waves-effect waves-light"
+                type="submit"
+                name="action"
+              >
+                Submit
+                <i className="material-icons right">send</i>
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -318,11 +259,10 @@ class EditProfile extends Component {
   }
 }
 
-EditProfile.propTypes = {
-  createNewProfile: PropTypes.func.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+CreateProfile.propTypes = {
+  createNewProfile: PropTypes.func,
+  profile: PropTypes.object,
+  errors: PropTypes.object
 };
 
 const mapStateToProps = state => {
@@ -335,6 +275,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { createNewProfile, getCurrentProfile }
-  )(EditProfile)
+    { createNewProfile }
+  )(CreateProfile)
 );
