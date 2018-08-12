@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TextFieldGroup from "../../../common/TextFieldGroup";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import isEmpty from "../../../validation/is-empty";
 
 import {
@@ -150,28 +150,28 @@ class EditProfile extends Component {
         <div className="row">
           <TextFieldGroup
             name="facebook"
-            placeholder="Facebook"
+            label="Facebook"
             value={this.state.facebook}
             error={errors.facebook}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="twitter"
-            placeholder="Twitter"
+            label="Twitter"
             value={this.state.twitter}
             error={errors.twitter}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="linkedin"
-            placeholder="Linkedin"
+            label="Linkedin"
             value={this.state.linkedin}
             error={errors.linkedin}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="instagram"
-            placeholder="Instagram"
+            label="Instagram"
             value={this.state.instagram}
             error={errors.instagram}
             onChange={this.onChange}
@@ -182,6 +182,9 @@ class EditProfile extends Component {
 
     return (
       <div className="row">
+        <Link to="/dashboard" className="btn waves-effect waves-light left">
+          Go Back
+        </Link>
         <h1>Edit Profile</h1>
         <form className="col s12" onSubmit={this.onSubmit}>
           <TextFieldGroup
@@ -285,12 +288,14 @@ class EditProfile extends Component {
                 onChange={this.onChange}
                 data-length="120"
               />
-              <label htmlFor="textarea2">A short bio of yourself</label>
+              <label className="active" htmlFor="textarea2">
+                A short bio of yourself
+              </label>
             </div>
           </div>
 
           <div className="row">
-            <button
+            <a
               className="btn waves-effect waves-light left"
               onClick={() => {
                 this.setState({
@@ -299,7 +304,7 @@ class EditProfile extends Component {
               }}
             >
               Add Social Network Links
-            </button>
+            </a>
             {socialInputs}
           </div>
           <div className="row">

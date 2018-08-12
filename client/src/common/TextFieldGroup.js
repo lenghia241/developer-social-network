@@ -28,7 +28,9 @@ const TextFieldGroup = props => {
           disabled={disabled}
           placeholder={placeholder}
         />
-        <label htmlFor={name}>{label}</label>
+        <label className="active" htmlFor={name}>
+          {label}
+        </label>
         <span className="helper-text left" data-error={error}>
           {info ? info : ""}
         </span>

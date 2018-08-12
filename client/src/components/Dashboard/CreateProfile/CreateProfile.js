@@ -90,28 +90,28 @@ class CreateProfile extends Component {
         <div>
           <TextFieldGroup
             name="facebook"
-            placeholder="Facebook"
+            label="Facebook"
             value={this.state.facebook}
             error={errors.facebook}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="twitter"
-            placeholder="Twitter"
+            label="Twitter"
             value={this.state.twitter}
             error={errors.twitter}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="linkedin"
-            placeholder="Linkedin"
+            label="Linkedin"
             value={this.state.linkedin}
             error={errors.linkedin}
             onChange={this.onChange}
           />
           <TextFieldGroup
             name="instagram"
-            placeholder="Instagram"
+            label="Instagram"
             value={this.state.instagram}
             error={errors.instagram}
             onChange={this.onChange}
@@ -231,7 +231,7 @@ class CreateProfile extends Component {
           </div>
 
           <div className="row">
-            <button
+            <a
               className="btn waves-effect waves-light left"
               onClick={() => {
                 this.setState(prevState => ({
@@ -240,7 +240,7 @@ class CreateProfile extends Component {
               }}
             >
               Add Social Network Links
-            </button>
+            </a>
             {socialInputs}
             <div className="row">
               <button

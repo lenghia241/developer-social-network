@@ -50,7 +50,7 @@ class Navbar extends Component {
 
     return (
       <nav className="indigo darken-4">
-        <div className="nav-wrapper">
+        <div className="nav-wrapper container">
           <ul className="left">
             <li>
               <NavLink

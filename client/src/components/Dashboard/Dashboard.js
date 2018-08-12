@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileAction";
 import { Link } from "react-router-dom";
 import ProfileView from "./ProfileView";
+import ExperienceTable from "./ExperienceTable";
+import EducationTable from "./EducationTable";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -34,10 +36,12 @@ class Dashboard extends Component {
               Welcome <Link to={`/${profile.handle}`}>{user.name}</Link>
             </p>
             <ProfileView />
+            <ExperienceTable experience={profile.experience} />
+            <EducationTable education={profile.education} />
             <div className="row">
               <a
                 onClick={this.onDeleteClick}
-                className="btn-large waves-effect red waves-light"
+                className="btn-large waves-effect red waves-dark"
               >
                 Delete My Account
               </a>

@@ -7,7 +7,7 @@ const ProfileView = () => {
       <div className="row">
         <Link
           to="/edit-profile"
-          className="btn-large waves-effect black-text darken-4 transparent waves-light"
+          className="btn-large waves-effect black-text darken-4 transparent waves-dark"
           style={{ outline: "none", border: "none", marginRight: "10px" }}
         >
           <i className="material-icons left">account_circle</i>
@@ -15,7 +15,7 @@ const ProfileView = () => {
         </Link>
         <Link
           to="/add-experience"
-          className="btn-large waves-effect black-text darken-4 transparent waves-light"
+          className="btn-large waves-effect black-text darken-4 transparent waves-dark"
           style={{ outline: "none", border: "none", marginRight: "10px" }}
         >
           <i className="material-icons left">business_center</i>
@@ -23,7 +23,7 @@ const ProfileView = () => {
         </Link>
         <Link
           to="/add-education"
-          className="btn-large waves-effect black-text darken-4 transparent waves-light"
+          className="btn-large waves-effect black-text darken-4 transparent waves-dark"
           style={{ outline: "none", border: "none" }}
         >
           <i className="material-icons left">face</i>

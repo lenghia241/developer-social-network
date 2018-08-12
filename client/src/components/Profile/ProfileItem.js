@@ -1,58 +1,44 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import isEmpty from "../../validation/is-empty";
 
-const ProfileItem = () => {
+const ProfileItem = props => {
+  const { location, company, status, user, skills, handle } = props.profile;
+
+  const skillsMap = skills.map((skill, index) => (
+    <li className="collection-item" key={index}>
+      {skill}
+    </li>
+  ));
   return (
-    // <div className="card hoverable grey mg-10">
-    //   <div className="waves-effect waves-block waves-light">
-    //     <img
-    //       className="activator profile-avatar"
-    //       src="https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png"
-    //       alt="avatar"
-    //     />
-    //   </div>
-    //   <div className="profile-info">
-    //     <h1 className="card-title activator grey-text text-darken-4">
-    //       John Doe
-    //     </h1>
-    //     <p>Developer at Facebook</p>
-    //     <p>Hanoi, Vietnam</p>
-    //     <a className="waves-effect waves-light btn z-depth-2">View Profile</a>
-    //   </div>
-    //   <i className="material-icons right activator">more_vert</i>
-    //   <div className="card-reveal">
-    //     <span className="card-title black-text text-darken-4">
-    //       Skill Set<i className="material-icons right">close</i>
-    //     </span>
-    //     <ul className="collection  black-text ">
-    //       <li className="collection-item">HTML</li>
-    //       <li className="collection-item">CSS</li>
-    //       <li className="collection-item">Javascript</li>
-    //       <li className="collection-item">C#</li>
-    //     </ul>
-    //   </div>
-    // </div>
     <div className="col s12 m4">
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           <img
             className="activator responsive-img"
-            src="https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png"
-            alt="profile avatar"
+            src={user.avatar}
+            alt={user.name}
           />
-          <span className="card-title light-blue-text accent-2 activator">
-            <h1>John Doe</h1>
+          <span className="card-title light-green-text activator left profiles-card-text">
+            <h1>{user.name}</h1>
           </span>
         </div>
-        <div className="card-content">
+        <div className="card-content left-align">
           <h1 className="card-title activator grey-text text-darken-4">
-            John Doe
+            {user.name}
           </h1>
-          <p>Developer at Facebook</p>
-          <p>Helsinki, Finland</p>
+          <p>
+            {status} at {isEmpty(company) ? null : company}
+          </p>
+          <p>{location}</p>
           <div style={{ marginTop: "20px" }}>
-            <a className="waves-effect waves-light btn halfway-fab z-depth-2">
+            <Link
+              to={`/userprofile/${handle}`}
+              className="waves-effect waves-red btn halfway-fab z-depth-2"
+            >
               View Profile
-            </a>
+            </Link>
             <a
               style={{ marginLeft: "10px" }}
               className="waves-effect waves-light btn halfway-fab activator red z-depth-2"
@@ -63,18 +49,18 @@ const ProfileItem = () => {
         </div>
         <div className="card-reveal">
           <span className="card-title black-text text-darken-4">
-            Skill Set<i className="material-icons right">close</i>
+            Skills Set
+            <i className="material-icons right">close</i>
           </span>
-          <ul className="collection  black-text ">
-            <li className="collection-item">HTML</li>
-            <li className="collection-item">CSS</li>
-            <li className="collection-item">Javascript</li>
-            <li className="collection-item">C#</li>
-          </ul>
+          <ul className="collection  black-text ">{skillsMap}</ul>
         </div>
       </div>
     </div>
   );
+};
+
+ProfileItem.propTypes = {
+  profile: PropTypes.object.isRequired
 };
 
 export default ProfileItem;

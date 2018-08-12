@@ -50,13 +50,13 @@ export class Landing extends Component {
         <div className="landing-button">
           <Link
             to="/login"
-            className="waves-effect waves-light btn-large z-depth-4 blue darken-2"
+            className="waves-effect waves-light btn-large z-depth-4 blue darken-2 pulse"
           >
             Log In
           </Link>
           <Link
             to="/signup"
-            className="waves-effect waves-light btn-large z-depth-4"
+            className="waves-effect waves-light btn-large z-depth-4 pulse"
           >
             Register
           </Link>

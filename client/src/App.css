@@ -32,12 +32,9 @@ body {
   display: flex;
   justify-content: center;
 }
-/* .card {
-  padding: 2%;
-  display: flex;
-  justify-content: space-around;
-} */
+
 /* Landing page styling */
+
 .particles {
   background: #3a6186; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -59,9 +56,13 @@ body {
   font-weight: bold;
 }
 .tilt-text {
-  background: #005c97; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #363795, #005c97);
-  /* Chrome 10-25, Safari 5.1-6 */
+  background: #005c97;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #363795,
+    #005c97
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #363795, #005c97);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 10px;
@@ -70,8 +71,8 @@ body {
   padding: 20px;
 }
 .landing-button > * {
-  margin: 10px;
-  margin-top: 50px;
+  margin-right: 50px;
+  margin-top: 80px;
 }
 /* Profile Style */
 .profile-avatar {
@@ -89,4 +90,10 @@ body {
   position: relative;
   bottom: 0;
   top: 0;
+}
+.profiles-card-text {
+  opacity: 0.7;
+}
+.social-icons > * {
+  margin-right: 20px;
 }
