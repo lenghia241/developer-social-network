@@ -97,3 +97,13 @@ body {
 .social-icons > * {
   margin-right: 20px;
 }
+.editor-class {
+  border: solid 1px black;
+}
+.toolbar-class {
+  border: solid 1px black;
+}
+.post-avatar {
+  display: flex;
+  flex-direction: column;
+}

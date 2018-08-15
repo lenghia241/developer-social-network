@@ -20,8 +20,8 @@ const ProfileItem = props => {
             src={user.avatar}
             alt={user.name}
           />
-          <span className="card-title light-green-text activator left profiles-card-text">
-            <h1>{user.name}</h1>
+          <span className="card-title indigo-text activator profiles-card-text">
+            <h3>{user.name}</h3>
           </span>
         </div>
         <div className="card-content left-align">

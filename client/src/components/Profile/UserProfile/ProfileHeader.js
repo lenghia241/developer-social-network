@@ -147,10 +147,10 @@ class ProfileHeader extends Component {
                 alt={user.name}
               />
               <h1>{user.name}</h1>
-              <span>
+              <h5>
                 {status} {isEmpty(company) ? null : <span>at {company}</span>}
-              </span>
-              {isEmpty(location) ? null : <p>{location}</p>}
+              </h5>
+              {isEmpty(location) ? null : <h5>{location}</h5>}
 
               <div className="row flow-text social-icons">
                 {isEmpty(website) ? null : (

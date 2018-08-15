@@ -22,6 +22,7 @@ import AddExperience from "./components/Dashboard/AddExperience/AddExperience";
 import AddEducation from "./components/Dashboard/AddEducation/AddEducation";
 import UserProfile from "./components/Profile/UserProfile/UserProfile";
 import NotFound from "./common/NotFound";
+import SinglePost from "./components/PostFeed/SinglePost/SinglePost";
 
 //Check for token
 if (localStorage.jwtToken) {
@@ -54,9 +55,10 @@ class App extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <Route path="/post" render={() => <PostFeed />} />
             <Route path="/userprofile/:handle" component={UserProfile} />
             <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/post" component={PostFeed} />
+            <PrivateRoute path="/post/:id" component={SinglePost} />
             <PrivateRoute path="/create-profile" component={CreateProfile} />
             <PrivateRoute path="/edit-profile" component={EditProfile} />
             <PrivateRoute path="/add-experience" component={AddExperience} />

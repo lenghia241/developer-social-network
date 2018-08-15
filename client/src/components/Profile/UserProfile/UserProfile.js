@@ -24,8 +24,8 @@ class UserProfile extends Component {
     } else {
       profileContent = (
         <div className="row">
-          <div className="row left-align">
-            <Link to="/profile" className="btn waves-effect waves-light">
+          <div className="row">
+            <Link to="/profile" className="btn waves-effect waves-light left">
               Back To Profiles
             </Link>
           </div>
