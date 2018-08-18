@@ -20,7 +20,6 @@ class ProfileHeader extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({ repos: data });
       })
       .catch(err => console.log(err));

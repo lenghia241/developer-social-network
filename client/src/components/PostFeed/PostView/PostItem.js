@@ -37,38 +37,47 @@ const PostItem = props => {
         </div>
         <div className="card-stacked col s9 left-align">
           <span className="card-content flow-text">{text}</span>
-          <div className="card-action">
-            <a
-              className="waves-effect waves-light"
-              style={{ color: `${likes.length > 0 ? "#2695F3" : "grey"}` }}
-              onClick={() => onLike(_id)}
-            >
-              <i className="material-icons">thumb_up</i>
-              <span className="helper-text">{likes.length}</span>
-            </a>
-            <a
-              className="waves-effect waves-light"
-              style={{ color: "grey" }}
-              onClick={() => onUnlike(_id)}
-            >
-              <i className="material-icons">thumb_down</i>
-            </a>
-            <Link to={`/post/${_id}`} className="btn waves-effect waves-light">
-              Comments
-            </Link>
-            {user === auth.user.id ? (
-              <button
-                onClick={() => onDelete(_id)}
-                className="btn waves-effect waves-light red"
+          {props.showActions ? (
+            <div className="card-action">
+              <a
+                className="waves-effect waves-light"
+                style={{ color: `${likes.length > 0 ? "#2695F3" : "grey"}` }}
+                onClick={() => onLike(_id)}
               >
-                <i className="material-icons">delete</i>
-              </button>
-            ) : null}
-          </div>
+                <i className="material-icons">thumb_up</i>
+                <span className="helper-text">{likes.length}</span>
+              </a>
+              <a
+                className="waves-effect waves-light"
+                style={{ color: "grey" }}
+                onClick={() => onUnlike(_id)}
+              >
+                <i className="material-icons">thumb_down</i>
+              </a>
+              <Link
+                to={`/postcommend/${_id}`}
+                className="btn waves-effect waves-light"
+              >
+                Comments
+              </Link>
+              {user === auth.user.id ? (
+                <button
+                  onClick={() => onDelete(_id)}
+                  className="btn waves-effect waves-light red"
+                >
+                  <i className="material-icons">delete</i>
+                </button>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
   );
+};
+
+PostItem.defaultProps = {
+  showActions: true
 };
 
 PostItem.propTypes = {
