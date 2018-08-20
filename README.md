@@ -16,8 +16,9 @@ First you need to clone the project and run
 ```
 npm install
 ```
+in the initial project folder for back end dependencies install and also in the client for front end dependencies
 
-then run command
+After that run command
 
 ```
 npm run dev
