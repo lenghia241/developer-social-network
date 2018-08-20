@@ -38,7 +38,7 @@ to start the back end and front end server. Client server run in http://localhos
 * Users can see the list of the developers registered in the Developers tab along with their profile and their skills set.
 * Users need to login or register a new account using their email. To get the avatar that shows in the app and profile, user need to have a [Gravatar](https://en.gravatar.com/).
 * After logging in there are 2 tabs in the navigation which are 
-Dashboard - for managing profile and experiences/education showcase
+Dashboard - for managing profile and experiences/education showcase, 
 Post feed - for seeing people posts, User can like or dislike and comment to the post.
 
 ## Authors
