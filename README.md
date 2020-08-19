@@ -3,7 +3,7 @@
 
 Devnet - A social network for developers using MERN stack to implement.
 
-Live version: https://devnet-react.herokuapp.com/
+Live version: https://devnet-niko.herokuapp.com/
 
 ## Getting Started
 
