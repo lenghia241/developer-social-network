@@ -13,7 +13,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-draft-wysiwyg": "^1.12.13",
+    "react-draft-wysiwyg": "^1.14.6",
     "react-moment": "^0.7.9",
     "react-particles-js": "^2.3.0",
     "react-redux": "^5.0.7",
